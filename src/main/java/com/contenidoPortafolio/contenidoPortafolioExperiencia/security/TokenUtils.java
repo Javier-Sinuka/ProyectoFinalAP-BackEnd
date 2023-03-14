@@ -11,14 +11,15 @@ import java.util.*;
 
 public class TokenUtils {
 
-    private final static String ACCES_TOKEN_SECRET = "4qhq7qhq8jf3jqosie2fs942";
+    private final static String ACCES_TOKEN_SECRET = "4qhq8LrEBfYcaRHxhdb9zURb2rf8e7Ud";
     private final static Long ACCES_TOKEN_VALIDITY_SECONDS = 2_592_000L; //30 dias de autenticacion
 
+    //Produce un TOKEN que sera enviado al cliente
     public static String createToke(String nombre, String email){
         long expirationTime = ACCES_TOKEN_VALIDITY_SECONDS * 1_000;
         Date expirationDate = new Date(System.currentTimeMillis() + expirationTime);
 
-        Map<String, Object> extra = new HashMap<>();
+        Map<String,Object> extra = new HashMap<>();
         extra.put("nombre",nombre);
 
         return Jwts.builder()
@@ -31,6 +32,7 @@ public class TokenUtils {
 
     public static UsernamePasswordAuthenticationToken getAuthentication(String token){
         try {
+            //Proceso de deconstruir el Token
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(ACCES_TOKEN_SECRET.getBytes())
                     .build()
@@ -41,6 +43,7 @@ public class TokenUtils {
 
             return new UsernamePasswordAuthenticationToken(email, null, Collections.emptyList());
         }catch (JwtException e){
+            //Me informa que no pude crear ningun user password auth se pudo crear a partir del token propuesto
             return null;
         }
     }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/contenido_experiencia")
+@RequestMapping("/api/contenido_experiencia")
 @CrossOrigin (origins = "http://localhost:4200") //Rutting a Angular y su  puerto
 public class ExperienciaController {
     @Autowired

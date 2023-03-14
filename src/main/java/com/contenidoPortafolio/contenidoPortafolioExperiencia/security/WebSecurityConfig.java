@@ -26,14 +26,21 @@ public class WebSecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/loguin");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
 
-
+        //La parte comentada de ("/api/usuario") hace que ingrese t odo lo que venga desde esa URL
+        //asi que se deja comentada, para que haga efecto el denegar la peticion con JWT
         return http
+                .cors()
+                .and()
                 .csrf().disable()
-                .authorizeRequests()
+                .authorizeHttpRequests()
+//                .requestMatchers("/api/usuario/listaUsuarios")
+//                .permitAll()
                 .anyRequest()
                 .authenticated()
+                .and()
+                .httpBasic()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -42,16 +49,6 @@ public class WebSecurityConfig {
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
-//    @Bean
-//    UserDetailsService userDetailsService(){
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//        manager.createUser(User.withUsername("admin")
-//                .password(passwordEncoder().encode("admin"))
-//                .roles()
-//                .build());
-//        return manager;
-//    }
 
     @Bean
     AuthenticationManager authManager(HttpSecurity http) throws Exception {
@@ -67,8 +64,8 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-//    //Testing
+    //Testing
 //    public static void main(String[] args) {
-//        System.out.println("pass: " + new BCryptPasswordEncoder().encode("1234"));
+//        System.out.println("pass: " + new BCryptPasswordEncoder().encode("darwin"));
 //    }
 }

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuario")
-@CrossOrigin(origins = "http://localhost:4200") //Rutting a Angular y su  puerto
+@RequestMapping("/api/usuario")
+//@CrossOrigin(origins = "http://localhost:4200") //Rutting a Angular y su  puerto
 @AllArgsConstructor
 public class UsuarioController {
     private final UsuarioRepository usuarioRepository;
