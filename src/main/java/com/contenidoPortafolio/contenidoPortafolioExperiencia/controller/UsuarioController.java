@@ -22,4 +22,6 @@ public class UsuarioController {
         usuarioRepository.save(usuario);
         return "Usuario creado correctamente";
     }
+
+
 }
