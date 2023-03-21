@@ -6,19 +6,24 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-@Table(name = "experiencia")
-public class Experiencia {
+@Table(name = "laboral")
+public class Laboral {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private int id;
+    private Long id;
     private String nombreExperiencia;
     private String modalidadExperiencia;
     private String lugarExperiencia;
-    private int tiempoExperiencia;
+    private String tiempoExperiencia;
     private String contenidoExperiencia;
 
-    public Experiencia(int id, String nombreExperiencia, String modalidadExperiencia, String lugarExperiencia, int tiempoExperiencia, String contenidoExperiencia) {
+    public Laboral(Long id,
+                   String nombreExperiencia,
+                   String modalidadExperiencia,
+                   String lugarExperiencia,
+                   String tiempoExperiencia,
+                   String contenidoExperiencia) {
         this.id = id;
         this.nombreExperiencia = nombreExperiencia;
         this.modalidadExperiencia = modalidadExperiencia;
@@ -27,11 +32,10 @@ public class Experiencia {
         this.contenidoExperiencia = contenidoExperiencia;
     }
 
-    public Experiencia() {
-
+    public Laboral() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -47,7 +51,7 @@ public class Experiencia {
         return lugarExperiencia;
     }
 
-    public int getTiempoExperiencia() {
+    public String getTiempoExperiencia() {
         return tiempoExperiencia;
     }
 
@@ -55,7 +59,7 @@ public class Experiencia {
         return contenidoExperiencia;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,7 +75,7 @@ public class Experiencia {
         this.lugarExperiencia = lugarExperiencia;
     }
 
-    public void setTiempoExperiencia(int tiempoExperiencia) {
+    public void setTiempoExperiencia(String tiempoExperiencia) {
         this.tiempoExperiencia = tiempoExperiencia;
     }
 

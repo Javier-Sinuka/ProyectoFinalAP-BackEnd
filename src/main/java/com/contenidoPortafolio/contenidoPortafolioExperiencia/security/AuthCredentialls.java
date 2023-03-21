@@ -6,6 +6,4 @@ import lombok.Data;
 public class AuthCredentialls {
     private String email;
     private String password;
-
-
 }
