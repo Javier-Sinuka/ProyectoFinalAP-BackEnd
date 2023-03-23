@@ -64,8 +64,8 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    //Testing
-//    public static void main(String[] args) {
-//        System.out.println("pass: " + new BCryptPasswordEncoder().encode("darwin"));
-//    }
+//    Testing
+    public static void main(String[] args) {
+        System.out.println("pass: " + new BCryptPasswordEncoder().encode("admin"));
+    }
 }

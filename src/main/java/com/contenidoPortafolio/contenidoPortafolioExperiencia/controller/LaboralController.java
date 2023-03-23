@@ -19,8 +19,21 @@ public class LaboralController {
     }
 
     @PostMapping ("/crearLaboral")
-    public String crearLaborar(@RequestBody Laboral laboral){
-        laboralRepository.save(laboral);
-        return "Laboral creado correctamente";
+    public Laboral crearLaborar(@RequestBody Laboral laboral){
+        return laboralRepository.save(laboral);
+//        return "Laboral creado correctamente";
     }
+
+    @DeleteMapping ("/eliminarLaboral/{id}")
+    public String eliminarLaboral(@PathVariable Integer id){
+        laboralRepository.deleteById(id);
+        return "Eliminado correctamente";
+    }
+
+
+//    @PostMapping ("/crearLaboral")
+//    public String crearLaborar(@RequestBody Laboral laboral){
+//      laboralRepository.save(laboral);
+//        return "Laboral creado correctamente";
+//    }
 }

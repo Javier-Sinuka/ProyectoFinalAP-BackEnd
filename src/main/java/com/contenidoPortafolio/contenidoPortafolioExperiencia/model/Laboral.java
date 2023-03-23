@@ -15,20 +15,21 @@ public class Laboral {
     private String nombreExperiencia;
     private String modalidadExperiencia;
     private String lugarExperiencia;
-    private String tiempoExperiencia;
     private String contenidoExperiencia;
+
+    private String periodoExperiencia;
 
     public Laboral(Long id,
                    String nombreExperiencia,
                    String modalidadExperiencia,
                    String lugarExperiencia,
-                   String tiempoExperiencia,
+                   String periodoExperiencia,
                    String contenidoExperiencia) {
         this.id = id;
         this.nombreExperiencia = nombreExperiencia;
         this.modalidadExperiencia = modalidadExperiencia;
         this.lugarExperiencia = lugarExperiencia;
-        this.tiempoExperiencia = tiempoExperiencia;
+        this.periodoExperiencia = periodoExperiencia;
         this.contenidoExperiencia = contenidoExperiencia;
     }
 
@@ -51,8 +52,8 @@ public class Laboral {
         return lugarExperiencia;
     }
 
-    public String getTiempoExperiencia() {
-        return tiempoExperiencia;
+    public String getPeriodoExperiencia() {
+        return periodoExperiencia;
     }
 
     public String getContenidoExperiencia() {
@@ -75,8 +76,8 @@ public class Laboral {
         this.lugarExperiencia = lugarExperiencia;
     }
 
-    public void setTiempoExperiencia(String tiempoExperiencia) {
-        this.tiempoExperiencia = tiempoExperiencia;
+    public void setPeriodoExperiencia(String periodoExperiencia) {
+        this.periodoExperiencia = periodoExperiencia;
     }
 
     public void setContenidoExperiencia(String contenidoExperiencia) {
