@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Observable;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/laboral")
@@ -18,10 +20,19 @@ public class LaboralController {
         return laboralRepository.findAll();
     }
 
+    @GetMapping ("/editarLaboral/{id}")
+    public Optional<Laboral> getLaboralId(@PathVariable Integer id){
+        return laboralRepository.findById(id);
+    }
+
+    @PutMapping("/actualizarLaboral/")
+    public void actualizarLaboral(@RequestBody Laboral p){
+        laboralRepository.saveAndFlush(p);
+    }
+
     @PostMapping ("/crearLaboral")
     public Laboral crearLaborar(@RequestBody Laboral laboral){
         return laboralRepository.save(laboral);
-//        return "Laboral creado correctamente";
     }
 
     @DeleteMapping ("/eliminarLaboral/{id}")
