@@ -35,7 +35,7 @@ public class WebSecurityConfig {
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-//                .requestMatchers("/api/usuario/listaUsuarios")
+//                .requestMatchers("/api/laboral/listaLaborales")
 //                .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -49,6 +49,8 @@ public class WebSecurityConfig {
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
+
 
     @Bean
     AuthenticationManager authManager(HttpSecurity http) throws Exception {
